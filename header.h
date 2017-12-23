@@ -16,14 +16,10 @@
 #include <string.h>
 #include <windows.h> //permet d'utiliser la fonction locate
 
+#include "headerrep.h"
+
 #define NOM ((int)100) //taille max du nom de joueur
 #define REP ((int)50) //taille max du répertoire de joueurs
-
-typedef struct Joueur
-{
-    char nom[NOM];
-    int score;
-}joueur;
 
 typedef struct Player
 {   //crée une structure similaire à Joueur, en ajoutant un tableau prenant en compte les 5 dés, ainsi qu'une valeur pour le pari
@@ -33,8 +29,10 @@ typedef struct Player
     int bet;
 }player;
 
+
+void liarDice(joueur rep[]);
 void letTheGameBegin(player table[]);
-void turn(player /*table[], int*/);
+void turn(player table[], int);
 void initTable(player table[], joueur rep[], int);
 player rollTheDice(player);
 void printTheDice(player);
